@@ -115,4 +115,22 @@ a {
     color: #5d6d88;
   }
 }
+
+@media (max-width: 1600px) {
+  #app {
+    width: 60%;
+  }
+}
+
+@media (max-width: 990px) {
+  #app {
+    width: 80%;
+  }
+}
+
+@media (max-width: 700px) {
+  #app {
+    width: 90%;
+  }
+}
 </style>
