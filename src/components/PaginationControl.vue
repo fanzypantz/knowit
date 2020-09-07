@@ -3,10 +3,7 @@
     <button @click="previousPage" class="table-pagination-button">
       Previous Page
     </button>
-    <p class="table-pagination-text">
-      Page {{ pages.paginationPage + pages.apiPage * 5 - 5 }} /
-      {{ Math.floor(total / 5) }}
-    </p>
+    <p class="table-pagination-text" :title="pageTest">{{ pageTest }}</p>
     <button @click="nextPage" class="table-pagination-button">Next Page</button>
   </div>
 </template>
@@ -27,6 +24,11 @@ export default class PaginationControl extends Vue {
   @Emit()
   nextPage() {
     return;
+  }
+
+  get pageTest(): string {
+    return `Page  ${this.pages.paginationPage + this.pages.apiPage * 5 - 5}  /
+     ${Math.floor(this.total / 5)} `;
   }
 }
 </script>
@@ -51,6 +53,8 @@ export default class PaginationControl extends Vue {
 .table-pagination-text {
   line-height: 56px;
   margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .table-pagination-button {
   padding: 0;
